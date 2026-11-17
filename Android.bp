@@ -1,0 +1,32 @@
+cc_binary {
+    name: "vendor.semc.hardware.secd@1.0-service.rebuild",
+    stem: "vendor.semc.hardware.secd@1.0-service.rebuild",
+    srcs: [
+        "CredMgrBackend.cpp",
+        "DevSecBackend.cpp",
+        "DeviceSecurity.cpp",
+        "service.cpp",
+    ],
+    local_include_dirs: ["include"],
+    shared_libs: [
+        "libcutils",
+        "libdevice_security_vendor",
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libQSEEComAPI",
+        "libsqlite",
+        "libsuntory",
+        "libutils",
+        "vendor.somc.hardware.security.secd@1.0",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    proprietary: true,
+}
